@@ -1,52 +1,47 @@
-# AI-Enhanced Real-Time Occupancy Planning System (Streamlit Prototype with Ollama)
+# AI-Enhanced Real-Time Occupancy Planning System (Streamlit + Ollama)
 
-This project is a Streamlit prototype demonstrating an AI-powered system for finding available workspaces based on natural language queries. It integrates mock data representing real-time occupancy, desk inventory, and organizational policies, **using a local Ollama instance for Natural Language Processing (NLP)**.
+This project is a Streamlit prototype demonstrating an AI-powered system for finding available workspaces based on natural language queries. It integrates mock data representing building spaces, desk inventory, real-time occupancy, and organizational policies, using a **local Ollama instance** for Natural Language Processing (NLP).
 
 ## Features
 
 *   **Natural Language Query Input:** Users can enter requests in plain English (e.g., "Find me a standing desk near marketing for tomorrow afternoon").
-*   **AI-Powered Parsing (Ollama):** Uses a locally running Ollama instance (e.g., with `llama3`, `mistral`, or `phi3`) to parse the natural language query into structured search criteria (desk type, location, time, etc.). Requires Ollama server to be running locally.
-*   **Data Integration:** Loads mock data for:
-    *   Building/Floor/Zone/Area structure (`spaces.json`)
-    *   Desk inventory with features and status (`desks.json`)
-    *   Simulated real-time occupancy and forecasts (`occupancy.json`)
-    *   Organizational policies and rules (`policies.json`)
-*   **Filtering Logic:** Filters available desks based on parsed criteria (type, floor, proximity).
-*   **Availability Check:** Performs a basic availability check considering:
-    *   Desk status (e.g., "maintenance").
-    *   Forecasted area occupancy for future requests (e.g., "tomorrow afternoon").
-    *   Simple policy checks (e.g., area capacity limits).
-*   **Workspace Recommendation:** Recommends suitable desks that match the criteria and availability checks.
-*   **Streamlit UI:** Provides a simple web interface for interaction.
+*   **AI-Powered Parsing (Ollama):** Uses a locally running Ollama instance to parse the natural language query into structured search criteria.
+*   **Data Integration:** Loads mock data for spaces, desks, occupancy, and policies.
+*   **Dynamic Filtering:** Filters desks based on parsed criteria (type, floor, proximity).
+*   **Availability Check:** Performs basic availability checks using desk status and forecasted area occupancy.
+*   **Workspace Recommendation:** Suggests suitable desks.
+*   **Streamlit UI:** Provides an interactive web interface.
 
 ## Prerequisites
 
 *   Python 3.8+
 *   `pip` (Python package installer)
-*   **Ollama:** You need Ollama installed and running locally.
-    *   Download and install from [https://ollama.com/](https://ollama.com/)
-    *   Ensure the Ollama server is running (usually starts automatically after installation, or run `ollama serve` in the terminal).
-*   **Ollama Model:** You need a suitable model pulled for Ollama that supports JSON output. `llama3` is recommended. Pull it using:
-    ```bash
-    ollama pull llama3
-    ```
-    *(Other models like `mistral` or `phi3` might also work if they support the JSON format flag).*
+*   **Ollama:**
+    *   Installed and running locally (Download from [https://ollama.com/](https://ollama.com/)).
+    *   Ollama server must be active (usually starts automatically or run `ollama serve`).
+*   **Ollama Model:** A suitable language model pulled for Ollama. Recommended lightweight options:
+    *   `phi3:mini` (Fastest, good starting point)
+    *   `mistral:7b` (Good balance of speed and capability)
+    *   Pull a model using: `ollama pull phi3:mini` or `ollama pull mistral:7b`
 
-## Setup Instructions
+## Installation
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
-    cd occupancy-planner-streamlit
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+    cd YOUR_REPOSITORY_NAME
     ```
+    *(Replace YOUR_USERNAME and YOUR_REPOSITORY_NAME)*
 
-2.  **Create a Virtual Environment (Recommended):**
+2.  **Create and Activate a Virtual Environment (Recommended):**
     ```bash
-    python -m venv venv
-    # On Windows
-    .\venv\Scripts\activate
-    # On macOS/Linux
+    # For macOS/Linux
+    python3 -m venv venv
     source venv/bin/activate
+
+    # For Windows
+    python -m venv venv
+    .\venv\Scripts\activate
     ```
 
 3.  **Install Dependencies:**
@@ -55,56 +50,38 @@ This project is a Streamlit prototype demonstrating an AI-powered system for fin
     ```
 
 4.  **Verify Ollama Setup:**
-    *   Make sure the Ollama application is running.
-    *   Confirm you have pulled the required model (e.g., `ollama list` should show `llama3`).
-    *   The application defaults to connecting to `http://localhost:11434`. If your Ollama runs on a different port/address, set the `OLLAMA_API_URL` environment variable. You can also set `OLLAMA_MODEL` if you want to use a different model than `llama3`.
+    *   Ensure the Ollama application/server is running.
+    *   Confirm you have pulled a model. Check with: `ollama list`. You should see the model you intend to use (e.g., `phi3:mini`).
+    *   The application defaults to connecting to Ollama at `http://localhost:11434` and using the model specified in `app.py` (defaults to `phi3:mini`).
 
-5.  **Verify Mock Data:**
-    Ensure the `data/` directory exists and contains the required JSON files: `spaces.json`, `occupancy.json`, `desks.json`, `employee_preferences.json`, and `policies.json`.
+5.  **(Optional) Configure Ollama Connection:**
+    If your Ollama setup differs or you want to use a different model by default without changing the code, you can set environment variables *before* running the app:
+    *   `OLLAMA_API_URL`: e.g., `http://localhost:11435/api/generate` (if Ollama is on a different port)
+    *   `OLLAMA_MODEL`: e.g., `mistral:7b`
 
 ## Running the Application
 
-1.  **Ensure Ollama is running** with the necessary model available.
+1.  **Ensure Ollama is running** with your chosen model loaded/available.
 2.  **Activate your virtual environment** (if you created one).
-3.  **(Optional) Set Environment Variables:** If your Ollama setup differs from the default:
-    ```bash
-    # Example: Using a different model
-    export OLLAMA_MODEL=mistral
-    # Example: Ollama running on a different port
-    export OLLAMA_API_URL=http://localhost:11435/api/generate
-    ```
-4.  **Run the Streamlit app:**
+3.  **(Optional) Set environment variables** as described above if needed.
+4.  **Run the Streamlit app from the project's root directory:**
     ```bash
     streamlit run app.py
     ```
-5.  Open your web browser and navigate to the local URL provided by Streamlit (usually `http://localhost:8501`). The app will check the connection to Ollama on startup.
+5.  Open your web browser and navigate to the local URL provided by Streamlit (usually `http://localhost:8501`).
+    The application will attempt to connect to Ollama on startup.
 
 ## How to Use
 
-1.  Enter your workspace request in the text box. The default query is provided as an example.
-2.  Click the "Find Workspace" button.
-3.  The application will:
-    *   Attempt to parse your query using your local Ollama instance. The extracted criteria will be shown.
-    *   Filter the available desks based on the criteria. A log of filtering steps can be expanded.
-    *   Check the availability of the filtered desks based on their status and relevant forecasts/policies. An availability log can be expanded.
-    *   Display recommended desks or a message if no suitable desks are found.
+1.  Once the app is running, you'll see an input field: "Enter your workspace request:".
+2.  Type your query in natural language (e.g., "Find me an available standing desk near the marketing team on the 3rd floor for tomorrow afternoon.").
+3.  Click the "Find Workspace" button.
+4.  The application will:
+    *   **Parse Query:** Send your request to your local Ollama instance to extract structured criteria (shown on the UI).
+    *   **Filter Desks:** Apply these criteria to the mock desk data.
+    *   **Check Availability:** Evaluate if the filtered desks are likely available based on their status and forecasted occupancy.
+    *   **Recommend:** Display suitable desks or a message if none are found.
+5.  You can view details of the filtering and availability check process by expanding the respective sections.
+6.  The sidebar allows you to inspect the raw mock data loaded by the application.
 
-## Mock Data Explanation
-
-*   **`spaces.json`**: Defines the physical hierarchy (building, floors, zones, areas) with names and capacities.
-*   **`occupancy.json`**: Contains mock real-time occupancy counts/percentages per area (`occupancy_data`) and forecasted occupancy percentages for the next day (`forecast`).
-*   **`desks.json`**: Lists individual desks with their ID, type, location (area, floor, zone), features, current status, and last used timestamp. `vergesense_area_id` links to the occupancy data.
-*   **`employee_preferences.json`**: (Not actively used in the core logic for the specific query but included for future expansion) Contains employee preferences for desk types, locations, equipment, etc.
-*   **`policies.json`**: Defines organizational rules like capacity limits, sanitization requirements, and team zoning preferences.
-
-## Limitations & Future Improvements
-
-*   **Dependency on Local Ollama:** Requires users to install, run, and manage their own Ollama instance and models.
-*   **NLP Accuracy:** The accuracy of the NLP parsing depends heavily on the chosen Ollama model and its ability to follow instructions and generate structured JSON correctly. Prompt engineering might be needed for different models.
-*   **Performance:** Local model inference speed depends on the user's hardware. Requests might take longer than cloud-based APIs.
-*   **Availability Simplification:** The availability check for future times ("tomorrow afternoon") is based on *area forecast* percentages, not individual desk bookings. It assumes desks *might* be free if the area isn't fully occupied according to the forecast. A real system requires integration with a booking calendar.
-*   **Policy Implementation:** Only basic policy checks (capacity limits) are actively used in filtering. More complex policies (sanitization time gaps, social distancing) require more sophisticated logic and data.
-*   **Proximity Logic:** Only proximity to "marketing team" (based on Marketing Zone areas) is specifically implemented. Other proximity requests (e.g., "near window") are not handled.
-*   **Error Handling:** Basic error handling for Ollama connection and response parsing is included, but robustness could be improved.
-*   **Employee Preferences:** Not currently factored into the recommendation ranking for this specific query.
-*   **Scalability:** Data loading and filtering are done in memory. For larger datasets, databases and more optimized querying would be necessary.
+## Project Structure
