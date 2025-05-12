@@ -1,0 +1,56 @@
+{
+    "policies": [
+        {
+            "id": "POL-001",
+            "name": "Social Distancing",
+            "description": "Maintain 6 feet minimum distance between occupied desks",
+            "active": true,
+            "enforcement_level": "mandatory"
+        },
+        {
+            "id": "POL-002",
+            "name": "Desk Sanitization",
+            "description": "Desks must be sanitized and remain unused for 4 hours after use",
+            "active": true,
+            "enforcement_level": "mandatory"
+        },
+        {
+            "id": "POL-003",
+            "name": "Accessibility Priority",
+            "description": "Employees with accessibility needs have priority for access",
+            "active": true,
+            "enforcement_level": "mandatory"
+        },
+        {
+            "id": "POL-004",
+            "name": "Team Zones",
+            "description": "Teams should be seated in their designated zones when possible",
+            "active": true,
+            "enforcement_level": "preferred"
+        },
+        {
+            "id": "POL-005",
+            "name": "Capacity Limits",
+            "description": "Floor occupancy should not exceed 80% of total capacity",
+            "active": true,
+            "enforcement_level": "mandatory"
+        }
+    ],
+    "desk_assignment_rules": [
+        {
+            "rule_id": "RULE-001",
+            "description": "Standing desks assigned only to employees who request them",
+            "priority": 1
+        },
+        {
+            "rule_id": "RULE-002",
+            "description": "Dual monitors assigned only when specified in equipment needs",
+            "priority": 2
+        },
+        {
+            "rule_id": "RULE-003",
+            "description": "Maintain adjacency to requested teams when possible",
+            "priority": 3
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "spaces": [
+        {
+            "id": "space-001",
+            "name": "3rd Floor",
+            "type": "floor",
+            "capacity": 120,
+            "parent_id": "building-hq"
+        },
+        {
+            "id": "space-002",
+            "name": "Marketing Zone",
+            "type": "zone",
+            "capacity": 25,
+            "parent_id": "space-001"
+        },
+        {
+            "id": "space-003",
+            "name": "Sales Zone",
+            "type": "zone",
+            "capacity": 30,
+            "parent_id": "space-001"
+        },
+        {
+            "id": "space-004",
+            "name": "Engineering Zone",
+            "type": "zone",
+            "capacity": 40,
+            "parent_id": "space-001"
+        },
+        {
+            "id": "area-001",
+            "name": "Marketing Team Area A",
+            "type": "area",
+            "capacity": 15,
+            "parent_id": "space-002"
+        },
+        {
+            "id": "area-002",
+            "name": "Marketing Team Area B",
+            "type": "area",
+            "capacity": 10,
+            "parent_id": "space-002"
+        }
+    ]
+}

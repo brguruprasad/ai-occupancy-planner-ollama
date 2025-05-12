@@ -1,0 +1,64 @@
+{
+    "desks": [
+        {
+            "id": "D-301",
+            "type": "standing",
+            "area_id": "area-001",
+            "vergesense_area_id": "area-001",
+            "floor": 3,
+            "zone": "Marketing Zone",
+            "location_description": "Near window, east corner",
+            "features": [ "dual-monitors", "ergonomic-chair", "adjustable-height" ],
+            "status": "available",
+            "last_used": "2025-05-06T17:00:00Z"
+        },
+        {
+            "id": "D-302",
+            "type": "standing",
+            "area_id": "area-001",
+            "vergesense_area_id": "area-001",
+            "floor": 3,
+            "zone": "Marketing Zone",
+            "location_description": "Near marketing team lead",
+            "features": [ "single-monitor", "ergonomic-chair", "adjustable-height" ],
+            "status": "occupied",
+            "last_used": "2025-05-07T09:00:00Z"
+        },
+        {
+            "id": "D-303",
+            "type": "regular",
+            "area_id": "area-001",
+            "vergesense_area_id": "area-001",
+            "floor": 3,
+            "zone": "Marketing Zone",
+            "location_description": "Central area",
+            "features": [ "dual-monitors", "standard-chair" ],
+            "status": "available",
+            "last_used": "2025-05-06T18:30:00Z"
+        },
+        {
+            "id": "D-304",
+            "type": "standing",
+            "area_id": "area-002",
+            "vergesense_area_id": "area-002",
+            "floor": 3,
+            "zone": "Marketing Zone",
+            "location_description": "Near breakout area",
+            "features": [ "dual-monitors", "ergonomic-chair", "adjustable-height" ],
+            "status": "available",
+            "last_used": "2025-05-06T16:45:00Z"
+        },
+        {
+            "id": "D-305",
+            "type": "standing",
+            "area_id": "area-002",
+            "vergesense_area_id": "area-002",
+            "floor": 3,
+            "zone": "Marketing Zone",
+            "location_description": "Near designers",
+            "features": [ "dual-monitors", "ergonomic-chair", "adjustable-height", "graphic tablet" ],
+            "status": "maintenance",
+            "last_used": "2025-05-05T17:30:00Z"
+        }
+    ]
+}

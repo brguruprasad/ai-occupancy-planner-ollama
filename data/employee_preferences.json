@@ -1,0 +1,37 @@
+{
+    "employee_preferences": [
+        {
+            "employee_id": "EMP-1001",
+            "name": "Alex Johnson",
+            "team": "Marketing",
+            "desk_preferences": [ "standing", "near-window" ],
+            "equipment_needs": [ "dual-monitors", "ergonomic-chair" ],
+            "preferred_days": [ "Monday", "Wednesday", "Thursday" ],
+            "preferred_location": "3rd Floor",
+            "accessibility_needs": null,
+            "adjacency_preferences": [ "marketing-team", "design-team" ]
+        },
+        {
+            "employee_id": "EMP-1002",
+            "name": "Sam Taylor",
+            "team": "Marketing",
+            "desk_preferences": [ "standing", "quiet-area" ],
+            "equipment_needs": [ "single-monitor", "ergonomic-chair" ],
+            "preferred_days": [ "Tuesday", "Thursday", "Friday" ],
+            "preferred_location": "3rd Floor",
+            "accessibility_needs": null,
+            "adjacency_preferences": [ "content-team" ]
+        },
+        {
+            "employee_id": "EMP-1003",
+            "name": "Jordan Lee",
+            "team": "Marketing",
+            "desk_preferences": [ "regular", "near-window" ],
+            "equipment_needs": [ "dual-monitors" ],
+            "preferred_days": [ "Monday", "Tuesday", "Wednesday" ],
+            "preferred_location": "3rd Floor",
+            "accessibility_needs": "wheelchair-accessible",
+            "adjacency_preferences": [ "marketing-team" ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+# Virtual Environment
+venv/
+*.venv/
+env/
+*/env/
+*/venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Streamlit secrets (though not used for Ollama API key directly)
+.streamlit/secrets.toml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Ollama logs or large model files if accidentally placed here
+# (Models should be in Ollama's default directory, not your project)
+
+.vs/

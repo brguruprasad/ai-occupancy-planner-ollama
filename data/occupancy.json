@@ -1,0 +1,32 @@
+{
+    "occupancy_data": [
+        {
+            "area_id": "area-001",
+            "timestamp": "2025-05-07T09:30:00Z",
+            "occupancy_count": 12,
+            "occupancy_percentage": 80
+        },
+        {
+            "area_id": "area-002",
+            "timestamp": "2025-05-07T09:30:00Z",
+            "occupancy_count": 7,
+            "occupancy_percentage": 70
+        }
+    ],
+    "forecast": {
+        "area-001": {
+            "next_day": {
+                "morning": 85,
+                "afternoon": 70,
+                "evening": 30
+            }
+        },
+        "area-002": {
+            "next_day": {
+                "morning": 90,
+                "afternoon": 65,
+                "evening": 20
+            }
+        }
+    }
+}
