@@ -66,7 +66,9 @@ This project is a Streamlit prototype demonstrating an AI-powered system for fin
 3.  **(Optional) Set environment variables** as described above if needed.
 4.  **Run the Streamlit app from the project's root directory:**
     ```bash
-    streamlit run app.py
+    streamlit run app.py 
+    or
+    python -m streamlit run app.py
     ```
 5.  Open your web browser and navigate to the local URL provided by Streamlit (usually `http://localhost:8501`).
     The application will attempt to connect to Ollama on startup.
