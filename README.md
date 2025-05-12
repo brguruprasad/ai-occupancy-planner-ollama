@@ -19,19 +19,17 @@ This project is a Streamlit prototype demonstrating an AI-powered system for fin
 *   **Ollama:**
     *   Installed and running locally (Download from [https://ollama.com/](https://ollama.com/)).
     *   Ollama server must be active (usually starts automatically or run `ollama serve`).
-*   **Ollama Model:** A suitable language model pulled for Ollama. Recommended lightweight options:
+*   **Ollama Model:** A suitable language model pulled for Ollama. lightweight option used:
     *   `phi3:mini` (Fastest, good starting point)
-    *   `mistral:7b` (Good balance of speed and capability)
-    *   Pull a model using: `ollama pull phi3:mini` or `ollama pull mistral:7b`
+    *   Pull a model using: `ollama pull phi3:mini`
 
 ## Installation
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-    cd YOUR_REPOSITORY_NAME
+    git clone https://github.com/brguruprasad/ai-occupancy-planner-ollama.git
+    cd ai-occupancy-planner-ollama
     ```
-    *(Replace YOUR_USERNAME and YOUR_REPOSITORY_NAME)*
 
 2.  **Create and Activate a Virtual Environment (Recommended):**
     ```bash
@@ -57,7 +55,7 @@ This project is a Streamlit prototype demonstrating an AI-powered system for fin
 5.  **(Optional) Configure Ollama Connection:**
     If your Ollama setup differs or you want to use a different model by default without changing the code, you can set environment variables *before* running the app:
     *   `OLLAMA_API_URL`: e.g., `http://localhost:11435/api/generate` (if Ollama is on a different port)
-    *   `OLLAMA_MODEL`: e.g., `mistral:7b`
+    *   `OLLAMA_MODEL`: e.g., `phi3:mini`
 
 ## Running the Application
 
