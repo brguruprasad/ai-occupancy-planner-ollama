@@ -84,4 +84,14 @@ This project is a Streamlit prototype demonstrating an AI-powered system for fin
 5.  You can view details of the filtering and availability check process by expanding the respective sections.
 6.  The sidebar allows you to inspect the raw mock data loaded by the application.
 
-## Project Structure
+## Troubleshooting
+
+*   **"Request to Ollama timed out" / "Failed to parse...":**
+    *   Ensure Ollama is running: `ollama list`.
+    *   Ensure the model specified in `app.py` (or `OLLAMA_MODEL` env var) is pulled and listed.
+    *   Your machine might be too slow for the chosen model, or the model is still loading for the first time. Try a smaller model (`phi3:mini`) or increase the `timeout` in `app.py` within the `requests.post(...)` call.
+    *   Check system resources (CPU/RAM).
+*   **"Could not connect to Ollama server":**
+    *   Verify Ollama is running and accessible at the `OLLAMA_API_URL` (default `http://localhost:11434`). Check for firewall issues.
+*   **Data loading errors:**
+    *   Ensure all `.json` files are present in the `data/` directory and are correctly formatted.

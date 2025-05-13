@@ -187,7 +187,6 @@ def check_desk_availability(desk, time_request, occupancy_data, policies):
              return False, f"Area {area_id} forecasted occupancy ({forecast}%) meets/exceeds threshold ({threshold}%) for tomorrow afternoon."
 
         # Desk Sanitization Policy (POL-002) - Simple check: Not implemented in detail for prototype
-        # In a real system, you'd check desk.last_used + 4 hours against the requested time.
         # For "tomorrow afternoon", this is unlikely to conflict unless used very late today.
 
         # If forecast is below threshold, we *assume* the desk *might* be available.
